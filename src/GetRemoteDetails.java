@@ -90,7 +90,7 @@ public class GetRemoteDetails {
         trait_reliability = new String[Add.size()];
 
         int ju=0,nu=0, se=0, domm=0, nam=0, sta=0, bre=0, da=0, sir=0;
-        for (int xx = 0; xx <2;xx++){//Add.size(); xx++) {
+        for (int xx = 0; xx <Add.size(); xx++) {//2;xx++){//
 
             newId = (String) Add.get(xx);     //take id out and make connection to individual profiles
             //System.out.print(newId);
@@ -208,7 +208,7 @@ public class GetRemoteDetails {
                         // replacement[xx] = matcher.group(1).toString();
                         ll++;
                         b.add(matcher.group(1));
-                        //  System.out.println(matcher.group(1));
+                          System.out.println(matcher.group(1));
                     }
                 }
                 calv = linesin2[63];                     //searching calving
