@@ -5,6 +5,7 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -56,6 +57,49 @@ public class GetRemoteDetails {
     private static String[] daughter_calving_rel;
     private static String[] daughter_calv_int;
     private static String[] daughter_calv_int_rel;
+    private static String[] MRank;
+    private static String[] MCode;
+    private static String[] MBullName;
+    private static String[] MBreed;
+    private static String[] MIndex;
+    private static String[] MRel1;
+    private static String[] MStarsWithin;
+    private static String[] MStarsAcross;
+    private static String[] MCalvDiff;
+    private static String[] MRel2;
+    private static String[] MGest;
+    private static String[] MRel3;
+    private static String[] MDocility;
+    private static String[] MRel4;
+    private static String[] MCarcassWeightkgs;
+    private static String[] MRel5;
+    private static String[] MCarcassConf;
+    private static String[] MRel6;
+    private static String[] MAvail;
+    private static String[] MPrice;
+    private static String[] MSupplier;
+    private static String[] TRank;
+    private static String[] TCode;
+    private static String[] TBullName;
+    private static String[] TBreed;
+    private static String[] TIndex;
+    private static String[] TRel1;
+    private static String[] TStarsWithin;
+    private static String[] TStarsAcross;
+    private static String[] TCalvDiff;
+    private static String[] TRel2;
+    private static String[] TGest;
+    private static String[] TRel3;
+    private static String[] TDocility;
+    private static String[] TRel4;
+    private static String[] TCarcassWeightkgs;
+    private static String[] TRel5;
+    private static String[] TCarcassConf;
+    private static String[] TRel6;
+    private static String[] TAvail;
+    private static String[] TPrice;
+    private static String[] TSupplier;
+
     // private static String[]
     public GetRemoteDetails(String usrName, String passWord) throws Exception {
 
@@ -132,7 +176,7 @@ public class GetRemoteDetails {
         daughter_calv_int_rel = new String[Add.size()];
 
         int ju=0,nu=0, se=0, domm=0, nam=0, sta=0, bre=0, da=0, sir=0;
-        for (int xx = 0; xx <2;xx++) {//){//Add.size(); xx++
+        for (int xx = 0; xx <2;xx++) {//){// 2;xx++
 
             newId = (String) Add.get(xx);     //take id out and make connection to individual profiles
             //System.out.print(newId);
@@ -509,7 +553,7 @@ public class GetRemoteDetails {
             daughter_calv_int_rel[xx] = dCalvIntRel3[0];        //daughter calving interval reliability
 
 
-            System.out.println("rep " +  replacement[xx]);
+            /*System.out.println("rep " +  replacement[xx]);
             System.out.println("rep_mater " +replacement_maternal[xx]);
             System.out.println("rep_mater_prog " + replacement_maternal_prog[xx]);
             System.out.println("terminal "+terminal[xx]);
@@ -532,8 +576,152 @@ public class GetRemoteDetails {
             System.out.println("carcass_conform_index "+ carcass_conform_index[xx]);
             System.out.println("carcass_conform_reliability "+ carcass_conform_rel[xx]);
             System.out.println("daughter_calving_interval "+  daughter_calv_int[xx]);
-            System.out.println("daughter_calving_interval_reliability "+ daughter_calv_int_rel[xx]);
+            System.out.println("daughter_calving_interval_reliability "+ daughter_calv_int_rel[xx]);*/
+            int end=0;
+            try {
+                end = countLines("ActiveBeefMaternal.csv");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            MRank =new String[end-3];
+            MCode =new String[end-3];
+            MBullName =new String[end-3];
+            MBreed =new String[end-3];
+            MIndex =new String[end-3];
+            MRel1 =new String[end-3];
+            MStarsWithin =new String[end-3];
+            MStarsAcross =new String[end-3];
+            MCalvDiff =new String[end-3];
+            MRel2 =new String[end-3];
+            MGest =new String[end-3];
+            MRel3 =new String[end-3];
+            MDocility =new String[end-3];
+            MRel4 =new String[end-3];
+            MCarcassWeightkgs =new String[end-3];
+            MRel5 =new String[end-3];
+            MCarcassConf =new String[end-3];
+            MRel6 =new String[end-3];
+            MAvail =new String[end-3];
+            MPrice =new String[end-3];
+            MSupplier =new String[end-3];
+            try{
+                BufferedReader br = new BufferedReader(new FileReader("ActiveBeefMaternal.csv"));
+                int count=0,ii=0;
+                String line;
+                while ((line = br.readLine()) != null) {
+                    if(count<3){
+                        count++;
+                    }else{
+                        //System.out.println(line);
+                        String[] words = line.split(",");
 
+                        MRank [ii]               = words[0];
+                        MCode [ii]               = words[1];
+                        MBullName [ii]           = words[2];
+                        MBreed[ii]               = words[3];
+                        MIndex[ii]               = words[4];
+                        MRel1 [ii]               = words[5];
+                        MStarsWithin  [ii]       = words[6];
+                        MStarsAcross  [ii]       = words[7];
+                        MCalvDiff[ii]            = words[8];
+                        MRel2 [ii]               = words[9];
+                        MGest [ii]               = words[10];
+                        MRel3 [ii]               = words[11];
+                        MDocility [ii]           = words[12];
+                        MRel4 [ii]               = words[13];
+                        MCarcassWeightkgs [ii]   = words[14];
+                        MRel5 [ii]               = words[15];
+                        MCarcassConf  [ii]       = words[16];
+                        MRel6 [ii]               = words[17];
+                        MAvail[ii]               = words[18];
+                        MPrice[ii]               = words[19];
+                        MSupplier [ii]           = words[20];
+                        ii++;
+                    }
+                }
+                br.close();
+                // line is not visible here.
+            } catch (FileNotFoundException e1) {
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+            int endt=0;
+            try {
+                endt = countLines("ActiveBeefTerminal.csv");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            TRank =new String[endt-3];
+            TCode =new String[endt-3];
+            TBullName =new String[endt-3];
+            TBreed =new String[endt-3];
+            TIndex =new String[endt-3];
+            TRel1 =new String[endt-3];
+            TStarsWithin =new String[endt-3];
+            TStarsAcross =new String[endt-3];
+            TCalvDiff =new String[endt-3];
+            TRel2 =new String[endt-3];
+            TGest =new String[endt-3];
+            TRel3 =new String[endt-3];
+            TDocility =new String[endt-3];
+            TRel4 =new String[endt-3];
+            TCarcassWeightkgs =new String[endt-3];
+            TRel5 =new String[endt-3];
+            TCarcassConf =new String[endt-3];
+            TRel6 =new String[endt-3];
+            TAvail =new String[endt-3];
+            TPrice =new String[endt-3];
+            TSupplier =new String[endt-3];
+            try{
+                BufferedReader br = new BufferedReader(new FileReader("ActiveBeefTerminal.csv"));
+                int count=0,ii=0;
+                String line;
+                while ((line = br.readLine()) != null) {
+                    if(count<3){
+                        count++;
+                    }else{
+                        //System.out.println(line);
+                        String[] words = line.split(",");
+
+                        TRank [ii]               = words[0];
+                        TCode [ii]               = words[1];
+                        TBullName [ii]           = words[2];
+                        TBreed[ii]               = words[3];
+                        TIndex[ii]               = words[4];
+                        TRel1 [ii]               = words[5];
+                        TStarsWithin  [ii]       = words[6];
+                        TStarsAcross  [ii]       = words[7];
+                        TCalvDiff[ii]            = words[8];
+                        TRel2 [ii]               = words[9];
+                        TGest [ii]               = words[10];
+                        TRel3 [ii]               = words[11];
+                        TDocility [ii]           = words[12];
+                        TRel4 [ii]               = words[13];
+                        TCarcassWeightkgs [ii]   = words[14];
+                        TRel5 [ii]               = words[15];
+                        TCarcassConf  [ii]       = words[16];
+                        TRel6 [ii]               = words[17];
+                        TAvail[ii]               = words[18];
+                        TPrice[ii]               = words[19];
+                        TSupplier [ii]           = words[20];
+                        ii++;
+                    }
+                }
+                br.close();
+                // line is not visible here.
+            } catch (FileNotFoundException e1) {
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            /*for (int cc = 0; cc < MRank.length ; cc++) {
+                System.out.println(MRank[cc] + " " + MBullName[cc]);
+            }
+            for (int cc = 0; cc < TRank.length ; cc++) {
+                System.out.println(TRank[cc] + " " + TBullName[cc]);
+            }*/
 
         }
     }
@@ -579,10 +767,60 @@ public class GetRemoteDetails {
         j.put("daughter_milk_rel",daughter_milk_rel);
         j.put("daughter_calv_int",daughter_calv_int);
         j.put("daughter_calv_int_rel",daughter_calv_int_rel);
-
+        j.put("MRank",MRank);
+        j.put("MCode",MCode);
+        j.put("MBullName",MBullName);
+        j.put("MBreed",MBreed);
+        j.put("MIndex",MIndex);
+        j.put("MRel1",MRel1);
+        j.put("MStarsWithin",MStarsWithin);
+        j.put("MStarsAcross",MStarsAcross);
+        j.put("MCalvDiff",MCalvDiff);
+        j.put("MRel2",MRel2);
+        j.put("MGest",MGest);
+        j.put("MRel3",MRel3);
+        j.put("MDocility",MDocility);
+        j.put("MRel4",MRel4);
+        j.put("MCarcassWeightkgs",MCarcassWeightkgs);
+        j.put("MRel5",MRel5);
+        j.put("MCarcassConf",MCarcassConf);
+        j.put("MRel6",MRel6);
+        j.put("MAvail",MAvail);
+        j.put("MPrice",MPrice);
+        j.put("MSupplier",MSupplier);
+        j.put("TRank",TRank);
+        j.put("TCode",TCode);
+        j.put("TBullName",TBullName);
+        j.put("TBreed",TBreed);
+        j.put("TIndex",TIndex);
+        j.put("TRel1",TRel1);
+        j.put("TStarsWithin",TStarsWithin);
+        j.put("TStarsAcross",TStarsAcross);
+        j.put("TCalvDiff",TCalvDiff);
+        j.put("TRel2",TRel2);
+        j.put("TGest",TGest);
+        j.put("TRel3",TRel3);
+        j.put("TDocility",TDocility);
+        j.put("TRel4",TRel4);
+        j.put("TCarcassWeightkgs",TCarcassWeightkgs);
+        j.put("TRel5",TRel5);
+        j.put("TCarcassConf",TCarcassConf);
+        j.put("TRel6",TRel6);
+        j.put("TAvail",TAvail);
+        j.put("TPrice",TPrice);
+        j.put("TSupplier",TSupplier);
         return j;
     }
+    public static int countLines(String filename) throws IOException {
+        LineNumberReader reader  = new LineNumberReader(new FileReader(filename));
+        int cnt = 0;
+        String lineRead = "";
+        while ((lineRead = reader.readLine()) != null) {}
 
+        cnt = reader.getLineNumber();
+        reader.close();
+        return cnt;
+    }
 
 }
 
