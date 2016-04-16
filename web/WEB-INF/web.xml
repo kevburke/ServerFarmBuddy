@@ -15,4 +15,14 @@
         <url-pattern>/InputOutput</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CalfDatabase</servlet-name>
+        <servlet-class>CalfDatabase</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CalfDatabase</servlet-name>
+        <url-pattern>/CalfDatabase</url-pattern>
+    </servlet-mapping>
+
 </web-app>
