@@ -8,14 +8,17 @@
 <body>
 <?php
 
+$usrlogin =  $_POST["name"];
+$usrpass =  $_POST["password"];
+
 echo "In php";
 $servername = "localhost:3306";
 $username = "root";
 $password = "burke3";
 $dbname = "farmdata";
-echo "Created vars";
+
+
 // Create connection
-echo "Con To dbbefore";
 
 if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
     echo 'We don\'t have mysqli!!!';
@@ -31,8 +34,7 @@ echo "Con To db";
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-$sql = "SELECT * FROM calfie1313426";
+$sql = "SELECT * FROM "."calf".$usrlogin;
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

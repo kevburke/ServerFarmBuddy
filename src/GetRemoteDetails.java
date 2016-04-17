@@ -179,7 +179,7 @@ public class GetRemoteDetails {
         daughter_calv_int_rel = new String[Add.size()];
 
         int ju = 0, nu = 0, se = 0, domm = 0, nam = 0, sta = 0, bre = 0, da = 0, sir = 0;
-        for (int xx = 0; xx < 2; xx++) {//){// 2;xx++
+        for (int xx = 0; xx < jumbo.length; xx++) {//){// 2;xx++
 
             newId = (String) Add.get(xx);     //take id out and make connection to individual profiles
             //System.out.print(newId);
