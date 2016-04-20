@@ -179,7 +179,7 @@ public class GetRemoteDetails {
         daughter_calv_int_rel = new String[Add.size()];
 
         int ju = 0, nu = 0, se = 0, domm = 0, nam = 0, sta = 0, bre = 0, da = 0, sir = 0;
-        for (int xx = 0; xx < jumbo.length; xx++) {//){// 2;xx++
+        for (int xx = 0; xx < jumbo.length; xx++) { //){// 2;xx++
 
             newId = (String) Add.get(xx);     //take id out and make connection to individual profiles
             //System.out.print(newId);
@@ -580,6 +580,8 @@ public class GetRemoteDetails {
             System.out.println("carcass_conform_reliability " + carcass_conform_rel[xx]);
             System.out.println("daughter_calving_interval " + daughter_calv_int[xx]);
             System.out.println("daughter_calving_interval_reliability " + daughter_calv_int_rel[xx]);
+
+        }
             int end = 250;
             MRank = new String[end - 3];
             MCode = new String[end - 3];
@@ -602,6 +604,7 @@ public class GetRemoteDetails {
             MAvail = new String[end - 3];
             MPrice = new String[end - 3];
             MSupplier = new String[end - 3];
+            //System.out.println(MSupplier+"***********************************************");
             try {
                 BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Kev\\Desktop\\ServerFarmBuddy\\ActiveBeefMaternal.csv"));
                 int count = 0, ii = 0;
@@ -621,19 +624,19 @@ public class GetRemoteDetails {
                         MRel1[ii] = words[5];
                         MStarsWithin[ii] = words[6];
                         MStarsAcross[ii] = words[7];
-                        MCalvDiff[ii] = words[8];
-                        MRel2[ii] = words[9];
-                        MGest[ii] = words[10];
-                        MRel3[ii] = words[11];
-                        MDocility[ii] = words[12];
-                        MRel4[ii] = words[13];
-                        MCarcassWeightkgs[ii] = words[14];
-                        MRel5[ii] = words[15];
-                        MCarcassConf[ii] = words[16];
-                        MRel6[ii] = words[17];
-                        MAvail[ii] = words[18];
-                        MPrice[ii] = words[19];
-                        MSupplier[ii] = words[20];
+                        MCalvDiff[ii] = words[10];
+                        MRel2[ii] = words[11];
+                        MGest[ii] = words[12];
+                        MRel3[ii] = words[13];
+                        MDocility[ii] = words[14];
+                        MRel4[ii] = words[15];
+                        MCarcassWeightkgs[ii] = words[16];
+                        MRel5[ii] = words[17];
+                        MCarcassConf[ii] = words[18];
+                        MRel6[ii] = words[19];
+                        MAvail[ii] = words[20];
+                        MPrice[ii] = words[21];
+                        MSupplier[ii] = words[22];
                         ii++;
                     }
                 }
@@ -716,7 +719,7 @@ public class GetRemoteDetails {
                 System.out.println(TRank[cc] + " " + TBullName[cc]);
             }
 
-        }
+        System.out.println(MSupplier[0]+"***********************************************");
 
 
     }
