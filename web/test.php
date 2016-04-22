@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Farm Buddy Application</title>
+    <link rel="stylesheet" href="css/data.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
-<body>
 
+<body>
 <?php
 
 $usrlogin =  $_POST["name"];
@@ -34,20 +36,37 @@ $conn = new mysqli("localhost:3306", "root", "burke3",$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-echo "<b>
-<center>Current List For user .$usrlogin </center>
-</b>
-<br>
-</br>";
+
 $sql = "SELECT * FROM "."calf".$usrlogin;
 $result = $conn->query($sql);
+
+echo "<table class=\"responstable\">";
+
+echo "<tr>
+        <th>Jumbo</th>
+        <th>numID</th>
+        <th>BullName</th>
+        <th>Code</th>
+        <th>MateDate</th>
+        <th>Dob</th>
+    </tr>";
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<br>Dam Jumbo: " . $row["jumbo"]. " - Dam id: " . $row["numID"]. " -Sire: " . $row["BullName"]. " -Sire Id ". $row["Code"]. " -Mated: " . $row["MateDate"]. " -Due Date " . $row["Dob"]."<br>";
 
+
+    echo"   <tr>
+        <td>". $row["jumbo"]."</td>
+        <td>". $row["numID"]."</td>
+        <td>". $row["BullName"]."</td>
+        <td>". $row["Code"]."</td>
+        <td>". $row["MateDate"]."</td>
+        <td>". $row["Dob"]."</td>
+          </tr>";
     }
+    echo "</table>";
+
 } else {
     echo "0 results";
 }
@@ -55,3 +74,5 @@ $conn->close();
 ?>
 </body>
 </html>
+
+

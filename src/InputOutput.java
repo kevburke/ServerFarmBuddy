@@ -53,7 +53,7 @@ public class InputOutput extends HttpServlet {
             PrintWriter out = response.getWriter();
             out.println(jsn);
 
-
+            System.out.println(jsn);
 
 
 
