@@ -109,13 +109,13 @@ public class GetRemoteDetails {
         Connection.Response res = Jsoup                                 //connect to ICBF
                 .connect("https://webapp.icbf.com/auth/")
                 .data("username", usrName, "password", passWord)
-                .method(Connection.Method.POST)
+                .method(Connection.Method.POST)                         //do Post
                 .execute();
 
-//This will get you cookies
+        //This will get you cookies
         Map<String, String> loginCookies = res.cookies();
 
-// To remain in session
+        // To remain in session
         Document mainin = Jsoup.connect("https://webapp.icbf.com/profile/beef-eurostar")
                 .cookies(loginCookies)
                 .get();
@@ -556,30 +556,30 @@ public class GetRemoteDetails {
             daughter_calv_int_rel[xx] = dCalvIntRel3[0];        //daughter calving interval reliability
 
 
-            System.out.println("rep " + replacement[xx]);
-            System.out.println("rep_mater " + replacement_maternal[xx]);
-            System.out.println("rep_mater_prog " + replacement_maternal_prog[xx]);
-            System.out.println("terminal " + terminal[xx]);
-            System.out.println("dairy " + dairy[xx]);
-            System.out.println("cal " + calving_diff[xx]);
-            System.out.println("trait_rel " + trait_reliability[xx]);
-            System.out.println("replace_star " + replaceStar[xx]);
-            System.out.println("terminal_star " + termStar[xx]);
-            System.out.println("dairy_star " + dairyStar[xx]);
-            System.out.println("docile_star " + docileStar[xx]);
-            System.out.println("docile_index " + docility_index[xx]);
-            System.out.println("carcass_weight_star " + carcassWeighStar[xx]);
-            System.out.println("carcass_conformation_star " + carcassConformStar[xx]);
-            System.out.println("daughter_milk_star " + daughterMilkStar[xx]);
-            System.out.println("daughter_calv_int_star " + daughterCalvIntStar[xx]);
-            System.out.println("daughter_calving_difficulty" + daughter_Calving_Diff[xx]);
-            System.out.println("daughter_calving_difficulty_Reliability" + daughter_calving_rel[xx]);
-            System.out.println("daughter_milk_index" + daughter_Milk_index[xx]);
-            System.out.println("daughter_milk_reliability" + daughter_milk_rel[xx]);
-            System.out.println("carcass_conform_index " + carcass_conform_index[xx]);
-            System.out.println("carcass_conform_reliability " + carcass_conform_rel[xx]);
-            System.out.println("daughter_calving_interval " + daughter_calv_int[xx]);
-            System.out.println("daughter_calving_interval_reliability " + daughter_calv_int_rel[xx]);
+//            System.out.println("rep " + replacement[xx]);
+//            System.out.println("rep_mater " + replacement_maternal[xx]);
+//            System.out.println("rep_mater_prog " + replacement_maternal_prog[xx]);
+//            System.out.println("terminal " + terminal[xx]);
+//            System.out.println("dairy " + dairy[xx]);
+//            System.out.println("cal " + calving_diff[xx]);
+//            System.out.println("trait_rel " + trait_reliability[xx]);
+//            System.out.println("replace_star " + replaceStar[xx]);
+//            System.out.println("terminal_star " + termStar[xx]);
+//            System.out.println("dairy_star " + dairyStar[xx]);
+//            System.out.println("docile_star " + docileStar[xx]);
+//            System.out.println("docile_index " + docility_index[xx]);
+//            System.out.println("carcass_weight_star " + carcassWeighStar[xx]);
+//            System.out.println("carcass_conformation_star " + carcassConformStar[xx]);
+//            System.out.println("daughter_milk_star " + daughterMilkStar[xx]);
+//            System.out.println("daughter_calv_int_star " + daughterCalvIntStar[xx]);
+//            System.out.println("daughter_calving_difficulty" + daughter_Calving_Diff[xx]);
+//            System.out.println("daughter_calving_difficulty_Reliability" + daughter_calving_rel[xx]);
+//            System.out.println("daughter_milk_index" + daughter_Milk_index[xx]);
+//            System.out.println("daughter_milk_reliability" + daughter_milk_rel[xx]);
+//            System.out.println("carcass_conform_index " + carcass_conform_index[xx]);
+//            System.out.println("carcass_conform_reliability " + carcass_conform_rel[xx]);
+//            System.out.println("daughter_calving_interval " + daughter_calv_int[xx]);
+//            System.out.println("daughter_calving_interval_reliability " + daughter_calv_int_rel[xx]);
 
         }
             int end = 250;

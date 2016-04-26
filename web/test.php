@@ -48,7 +48,7 @@ echo "<tr>
         <th>BullName</th>
         <th>Code</th>
         <th>MateDate</th>
-        <th>Dob</th>
+        <th>Expected Dob</th>
     </tr>";
 
 if ($result->num_rows > 0) {
@@ -68,7 +68,9 @@ if ($result->num_rows > 0) {
     echo "</table>";
 
 } else {
-    echo "0 results";
+    echo"    <tr>
+     <td> 0 results found </td>
+     </tr>";
 }
 $conn->close();
 ?>
